@@ -7,15 +7,15 @@ public class Senha {
     private String conteudo;
 
     private Senha(String conteudo) {
-        this.conteudo = conteudo.trim();
+        this.conteudo = conteudo;
     }
 
-    public Senha createPassword(String conteudo) throws InvalidPasswordException {
+    public static Senha createPassword(String conteudo) throws InvalidPasswordException {
         validatePassword(conteudo);
-        return new Senha(conteudo);
+        return new Senha(conteudo.trim());
     }
 
-    public void validatePassword(String conteudo) throws InvalidPasswordException {
+    public static void validatePassword(String conteudo) throws InvalidPasswordException {
 
         if (conteudo.length() < 10)
             throw new InvalidPasswordException("A senha é muito curta!");
