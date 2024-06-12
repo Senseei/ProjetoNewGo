@@ -61,8 +61,10 @@ public class Senha {
     }
 
     public int getStrength() {
-        // NOT IMPLEMENTED
-        return 75;
+        float strength = 75;
+        strength += conteudo.length() - 10 * 1.25;
+
+        return (int) strength;
     }
 
     public String getConteudo() {
